@@ -4,6 +4,7 @@ including an extensible method for adding command resolution later. This is a _t
 is quite far from perfect and likely doesn't even follow most of python's best practices.
 
 Currently Broken (for sure):
+
     - Nickname is NOT threadsafe so it is not run in a thread however say_hello _is_ executed in a
       thread which for whatever reason is simply not updated following the call to nickname
 
