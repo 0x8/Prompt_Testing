@@ -65,14 +65,20 @@ class CommandLineInterface:
 
         # Main Loop - Infinite While until user enters 'quit'
         while True:
+    
+            try: 
+                cmd = input(prompt)
+                
+                # Check that the user doesn't wish to quit
+                if cmd == 'quit':
+                    break
+                else:
+                    self.handle_cmd(cmd)
             
-            cmd = input(prompt)
-            
-            # Check that the user doesn't wish to quit
-            if cmd == 'quit':
-                break
-            else:
-                self.handle_cmd(cmd)
+            # Handle Ctrl+C to kill
+            except KeyboardInterrupt:
+                print('Goodbye!')
+                sys.exit(0)
 
         # Post-loop cleanup
         print('Goodbye!')
